@@ -4,6 +4,7 @@ using CashFlow.Domain.Entities;
 using CashFlow.Domain.Repositories;
 using CashFlow.Domain.Repositories.Expenses;
 using CashFlow.Exception.ExceptionsBase;
+using Mapster;
 
 namespace CashFlow.Application.UseCases.Expenses.Register;
 
@@ -18,23 +19,16 @@ public class RegisterExpenseUseCase : IRegisterExpenseUseCase
         _unitOfWork = unitOfWork;
     }
 
-    public ResponseRegisteredExpenseJson Execute(RequestRegisterExpenseJson request)
+    public async Task<ResponseRegisteredExpenseJson> Execute(RequestRegisterExpenseJson request)
     {
         Validate(request);
 
-        var entity = new Expense
-        {
-            Title = request.Title,
-            Description = request.Description,
-            Date = request.Date,
-            Amount = request.Amount,
-            PaymentType = (Domain.Enums.PaymentType)request.PaymentType
-        };
+        var entity = request.Adapt<Expense>();
 
-        _repository.Add(entity);
-        _unitOfWork.Commit();
+        await _repository.Add(entity);
+        await _unitOfWork.Commit();
 
-        return new ResponseRegisteredExpenseJson();
+        return entity.Adapt<ResponseRegisteredExpenseJson>();
     }
 
     private void Validate(RequestRegisterExpenseJson request)
