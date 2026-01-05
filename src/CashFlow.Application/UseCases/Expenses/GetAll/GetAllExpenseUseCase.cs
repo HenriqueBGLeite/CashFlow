@@ -6,9 +6,9 @@ namespace CashFlow.Application.UseCases.Expenses.GetAll;
 
 public class GetAllExpenseUseCase : IGetAllExpenseUseCase
 {
-    private readonly IExpensesRepository _repository;
+    private readonly IExpensesReadOnlyRepository _repository;
 
-    public GetAllExpenseUseCase(IExpensesRepository repository)
+    public GetAllExpenseUseCase(IExpensesReadOnlyRepository repository)
     {
         _repository = repository;
     }
