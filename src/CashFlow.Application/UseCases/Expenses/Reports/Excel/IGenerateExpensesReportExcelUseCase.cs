@@ -1,4 +1,4 @@
-﻿namespace CashFlow.Application.UseCases.Expenses.Report.Excel;
+﻿namespace CashFlow.Application.UseCases.Expenses.Reports.Excel;
 
 public interface IGenerateExpensesReportExcelUseCase
 {

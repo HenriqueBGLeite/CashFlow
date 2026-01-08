@@ -144,4 +144,10 @@
   <data name="TITLE" xml:space="preserve">
     <value>Titre</value>
   </data>
+  <data name="EXPENSE_FOR" xml:space="preserve">
+    <value>Dépense pour</value>
+  </data>
+  <data name="TOTAL_SPENT_IN" xml:space="preserve">
+    <value>Total dépensé sur {0}</value>
+  </data>
 </root>

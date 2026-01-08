@@ -1,5 +1,5 @@
-﻿using CashFlow.Application.UseCases.Expenses.Report.Excel;
-using CashFlow.Application.UseCases.Expenses.Report.Pdf;
+﻿using CashFlow.Application.UseCases.Expenses.Reports.Excel;
+using CashFlow.Application.UseCases.Expenses.Reports.Pdf;
 using Microsoft.AspNetCore.Mvc;
 using System.Net.Mime;
 
