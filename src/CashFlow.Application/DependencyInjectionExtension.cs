@@ -39,5 +39,7 @@ public static class DependencyInjectionExtension
         serivces.AddScoped<IGenerateExpensesReportPdfUseCase, GenerateExpensesReportPdfUseCase>();
         
         serivces.AddScoped<IDoLoginUseCase, DoLoginUseCase>();
+
+        serivces.AddScoped<IRegisterUserUseCase, RegisterUserUseCase>();
     }
 }

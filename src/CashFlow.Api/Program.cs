@@ -1,4 +1,3 @@
-using Microsoft.OpenApi.Models;
 using CashFlow.Api.Filters;
 using CashFlow.Api.Middleware;
 using CashFlow.Application;
@@ -8,7 +7,7 @@ using CashFlow.Infrastructure.Extensions;
 using CashFlow.Infrastructure.Migrations;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.IdentityModel.Tokens;
-using Microsoft.OpenApi;
+using Microsoft.OpenApi.Models;
 using System.Text;
 
 var builder = WebApplication.CreateBuilder(args);

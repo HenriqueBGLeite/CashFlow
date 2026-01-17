@@ -21,6 +21,8 @@ public static class DependencyInjectionExtension
 {
     public static void AddInfrastructure(this IServiceCollection services, IConfiguration configuration, IWebHostEnvironment environment)
     {
+        services.AddScoped<IPasswordEncripter, Security.Cryptography.BCrypt>();
+
         AddRepositories(services);
         AddToken(services, configuration);
 
@@ -29,8 +31,6 @@ public static class DependencyInjectionExtension
             AddDbContext(services, configuration);
             AddFluentMigrator(services, configuration);
         }
-
-        services.AddScoped<IPasswordEncripter, Security.Cryptography.BCrypt>();
     }
 
     private static void AddToken(IServiceCollection services, IConfiguration configuration)
