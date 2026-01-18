@@ -38,6 +38,29 @@ public class CashFlowClassFixture : IClassFixture<CustomWebApplicationFactory>
         return await _httpClient.GetAsync(baseUrl);
     }
 
+    protected async Task<HttpResponseMessage> DoDelete(
+        string baseUrl,
+        string token,
+        string culture = "en")
+    {
+        AuthorizeRequest(token);
+        ChangeRequestCulture(culture);
+
+        return await _httpClient.DeleteAsync(baseUrl);
+    }
+
+    protected async Task<HttpResponseMessage> DoPut(
+        string baseUrl,
+        object request,
+        string token,
+        string culture = "en")
+    {
+        AuthorizeRequest(token);
+        ChangeRequestCulture(culture);
+
+        return await _httpClient.PutAsJsonAsync(baseUrl, request);
+    }
+
     private void AuthorizeRequest(string token)
     {
         if (string.IsNullOrWhiteSpace(token))
