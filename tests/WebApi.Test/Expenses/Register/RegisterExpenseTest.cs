@@ -1,5 +1,4 @@
 ﻿using CashFlow.Exception;
-using CommonTestUtilities.Entities;
 using CommonTestUtilities.Requests;
 using Shouldly;
 using System.Globalization;
@@ -23,7 +22,6 @@ public class RegisterExpenseTest : CashFlowClassFixture
     [Fact]
     public async Task Success()
     {
-        var loggedUser = UserBuilder.Build();
         var request = RequestRegisterExpenseJsonBuilder.Build();
 
         var result = await DoPost(baseUrl: BaseUrl, request: request, token: _token);
