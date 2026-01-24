@@ -7,8 +7,10 @@ using CashFlow.Application.UseCases.Expenses.Reports.Excel;
 using CashFlow.Application.UseCases.Expenses.Reports.Pdf;
 using CashFlow.Application.UseCases.Expenses.Update;
 using CashFlow.Application.UseCases.Login.DoLogin;
+using CashFlow.Application.UseCases.Users.ChangePassword;
 using CashFlow.Application.UseCases.Users.Profile;
 using CashFlow.Application.UseCases.Users.Register;
+using CashFlow.Application.UseCases.Users.Update;
 using Microsoft.Extensions.DependencyInjection;
 
 namespace CashFlow.Application;
@@ -43,5 +45,7 @@ public static class DependencyInjectionExtension
 
         serivces.AddScoped<IRegisterUserUseCase, RegisterUserUseCase>();
         serivces.AddScoped<IGetUserProfileUseCase, GetUserProfileUseCase>();
+        serivces.AddScoped<IUpdateUserUseCase, UpdateUserUseCase>();
+        serivces.AddScoped<IChangePasswordUseCase, ChangePasswordUseCase>();
     }
 }
