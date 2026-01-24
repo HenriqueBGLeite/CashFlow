@@ -5,6 +5,7 @@ using CashFlow.Exception;
 using CashFlow.Exception.ExceptionsBase;
 using CommonTestUtilities.Entities;
 using CommonTestUtilities.LoggedUser;
+using CommonTestUtilities.Mapster;
 using CommonTestUtilities.Repositories;
 using Shouldly;
 using System.Net;
@@ -13,6 +14,11 @@ namespace UseCases.Test.Expenses.GetById;
 
 public class GetExpenseByIdUseCaseTest
 {
+    public GetExpenseByIdUseCaseTest()
+    {
+        MapsterBuilder.Build();
+    }
+
     [Fact]
     public async Task Success()
     {
@@ -30,6 +36,9 @@ public class GetExpenseByIdUseCaseTest
         result.Date.ShouldBe(expense.Date);
         result.Amount.ShouldBe(expense.Amount);
         result.PaymentType.ShouldBe((PaymentType)expense.PaymentType);
+        result.Tags.ShouldNotBeEmpty();
+        //TODO - Revisar como funciona no Shouldly
+        //result.Tags.ShouldBeEquivalentTo(expense.Tags.Select(tag => tag.Value));
     }
 
     [Fact]
