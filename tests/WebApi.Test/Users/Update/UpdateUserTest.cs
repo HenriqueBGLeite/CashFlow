@@ -10,7 +10,7 @@ namespace WebApi.Test.Users.Update;
 
 public class UpdateUserTest : CashFlowClassFixture
 {
-    private const string METHOD = "api/User";
+    private const string BaseUrl = "api/User";
 
     private readonly string _token;
 
@@ -24,7 +24,7 @@ public class UpdateUserTest : CashFlowClassFixture
     {
         var request = RequestUpdateUserJsonBuilder.Build();
 
-        var response = await DoPut(METHOD, request, token: _token);
+        var response = await DoPut(BaseUrl, request, token: _token);
 
         response.StatusCode.ShouldBe(HttpStatusCode.NoContent);
     }
@@ -36,7 +36,7 @@ public class UpdateUserTest : CashFlowClassFixture
         var request = RequestUpdateUserJsonBuilder.Build();
         request.Name = string.Empty;
 
-        var response = await DoPut(METHOD, request, token: _token, culture: culture);
+        var response = await DoPut(BaseUrl, request, token: _token, culture: culture);
 
         response.StatusCode.ShouldBe(HttpStatusCode.BadRequest);
 
