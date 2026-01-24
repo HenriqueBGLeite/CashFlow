@@ -1,4 +1,5 @@
 ﻿using FluentMigrator;
+using System.Data;
 
 namespace CashFlow.Infrastructure.Migrations.Versions;
 
@@ -25,6 +26,6 @@ public class Version00000001 : ForwardOnlyMigration
             .WithColumn("Amount").AsDecimal(65, 30).NotNullable()
             .WithColumn("PaymentType").AsInt16().NotNullable()
             .WithColumn("UserId").AsInt64().NotNullable()
-                .ForeignKey("FK_Expenses_UserId", "Users", "Id");
+                .ForeignKey("FK_Expenses_UserId", "Users", "Id").OnDelete(Rule.Cascade);
     }
 }
