@@ -3,6 +3,7 @@ using Microsoft.EntityFrameworkCore;
 using System.Runtime.CompilerServices;
 
 [assembly: InternalsVisibleTo("WebApi.Test")]
+[assembly: InternalsVisibleTo("CashFlow.Api")]
 namespace CashFlow.Infrastructure.DataAccess;
 
 internal class CashFlowDbContext : DbContext
